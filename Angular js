@@ -1,0 +1,48 @@
+import { Component,OnInit } from '@angular/core';
+import {Chart} from 'chart.js';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  
+  LineChart=[];
+  
+ 
+  ngOnInit()
+  {
+     // Line chart:
+this.LineChart = new Chart('lineChart', {
+  type: 'line',
+data: {
+ labels: ["Jan", "Feb", "March", "April", "May", "June","July","Aug","Sep","Oct","Nov","Dec"],
+ datasets: [{
+     label: 'Number of Pasenger travel in Months',
+     data: [809478,738977,824644,755509,786037,885552,840188,745009,688290,725962,840267,661519
+      ],
+     fill:false,
+     lineTension:0.2,
+     borderColor:"green",
+     borderWidth: 1
+ }]
+}, 
+options: {
+ title:{
+    
+     display:true
+ },
+ scales: {
+     yAxes: [{
+         ticks: {
+             beginAtZero:true
+         }
+     }]
+ }
+}
+});
+
+
+
+  }
+}
